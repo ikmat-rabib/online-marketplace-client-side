@@ -15,8 +15,10 @@ const Navbar = () => {
 
     const navLinks = <>
         <li><NavLink  to='/'>Home</NavLink></li>
-        <li><NavLink  to='/add-product'>Add Product</NavLink></li>
-        <li><NavLink  to='/cart'>My Cart</NavLink></li>
+        <li><NavLink  to='/add-job'>Add Job</NavLink></li>
+        <li><NavLink  to='/posted-job'>My Posted Job</NavLink></li>
+        <li><NavLink  to='/bids'>My Bids</NavLink></li>
+        <li><NavLink  to='/bid-request'>Bid Request</NavLink></li>
 
     </>
 
@@ -53,16 +55,16 @@ const Navbar = () => {
                                         <img src={user.photoURL} />
                                     </div>
                                 </label>
-                                <button onClick={handleSignOut} className="btn btn-sm bg-[#aaff03] hover:bg-[#76b300] text-indigo-800 border-0 rounded-lg">Sign Out</button>
+                                <button onClick={handleSignOut} className="btn btn-sm bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0 rounded-lg">Sign Out</button>
                             </div>
                             :
                             <div >
                                 <Link to='/login'>
-                                    <button className="btn btn-sm bg-[#aaff03] hover:bg-[#76b300] text-indigo-800 border-0 rounded-lg  md:mr-3">Login</button>
+                                    <button className="btn btn-sm bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0 rounded-lg  md:mr-3">Login</button>
                                 </Link>
                                 
                                 <Link to='/register'>
-                                    <button className="btn btn-sm bg-[#aaff03] hover:bg-[#76b300] text-indigo-800 border-0 rounded-lg ">Register</button>
+                                    <button className="btn btn-sm bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0 rounded-lg ">Register</button>
                                 </Link>
                             </div>
                     }
