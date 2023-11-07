@@ -1,0 +1,140 @@
+[
+    {
+        "category_id": 1,
+        "category_name": "Web Development",
+        "jobs": [
+            {
+                "job_id": 1,
+                "employer_email": "employer1@example.com",
+                "job_title": "Full-Stack Developer",
+                "deadline": "2023-12-15",
+                "description": "Seeking a highly skilled Full-Stack Developer to join our team. You will be responsible for designing, coding, and modifying websites and web applications, from layout to function. The ideal candidate should have extensive experience in web development and a strong understanding of front-end and back-end technologies. You will work closely with our designers to ensure a seamless and visually appealing user experience. If you're passionate about coding and ready to take on exciting projects, apply now!",
+                "category": "Web Development",
+                "min_price": 700,
+                "max_price": 1200
+            },
+            {
+                "job_id": 2,
+                "employer_email": "employer2@example.com",
+                "job_title": "WordPress Developer",
+                "deadline": "2023-11-30",
+                "description": "We are in need of an experienced WordPress Developer to work on various projects. Your role will involve customizing existing themes, developing plugins, and optimizing website performance. The ideal candidate should be proficient in PHP, JavaScript, and CSS, with a deep understanding of the WordPress ecosystem. If you have a passion for crafting beautiful and functional WordPress websites, this is the opportunity for you. Join our team and help us create stunning online experiences for our clients!",
+                "category": "Web Development",
+                "min_price": 600,
+                "max_price": 1000
+            },
+            {
+                "job_id": 3,
+                "employer_email": "employer3@example.com",
+                "job_title": "E-commerce Website Developer",
+                "deadline": "2023-12-20",
+                "description": "We are looking for an E-commerce Website Developer to build and maintain our online store. You will be responsible for creating and customizing e-commerce websites, integrating payment gateways, and optimizing for performance and security. The ideal candidate should have experience with platforms like Shopify, Magento, or WooCommerce and a proven track record of delivering successful e-commerce solutions. If you're ready to contribute to the growth of our online business, apply now and help us create an exceptional shopping experience for our customers!",
+                "category": "Web Development",
+                "min_price": 800,
+                "max_price": 1500
+            },
+            {
+                "job_id": 4,
+                "employer_email": "employer4@example.com",
+                "job_title": "Mobile App Developer",
+                "deadline": "2023-12-05",
+                "description": "We're seeking a Mobile App Developer to design, develop, and maintain mobile applications for both Android and iOS platforms. You will work on creating user-friendly interfaces and seamless app functionality. The ideal candidate should have strong experience with Java, Kotlin, Swift, or React Native, and a portfolio of successful mobile apps. If you're passionate about mobile development and want to create innovative and user-centric apps, join our team and be part of our mobile app journey!",
+                "category": "Web Development",
+                "min_price": 900,
+                "max_price": 1600
+            }
+        ]
+    },
+    {
+        "category_id": 2,
+        "category_name": "Digital Marketing",
+        "jobs": [
+            {
+                "job_id": 5,
+                "employer_email": "employer5@example.com",
+                "job_title": "Content Marketing Specialist",
+                "deadline": "2024-01-10",
+                "description": "We are looking for a Content Marketing Specialist to lead our content strategy and creation. You will be responsible for developing and implementing content marketing plans, creating engaging blog posts, articles, and social media content. The ideal candidate should have a strong background in SEO and a passion for storytelling. If you're ready to make a meaningful impact through content, apply now and join our team to drive our brand's digital presence!",
+                "category": "Digital Marketing",
+                "min_price": 500,
+                "max_price": 900
+            },
+            {
+                "job_id": 6,
+                "employer_email": "employer6@example.com",
+                "job_title": "PPC Advertising Specialist",
+                "deadline": "2023-12-20",
+                "description": "We're seeking a PPC Advertising Specialist to manage and optimize pay-per-click advertising campaigns across various platforms. You will be responsible for keyword research, ad creation, bid management, and analyzing campaign performance. The ideal candidate should have a proven track record of achieving ROI through paid advertising. If you're passionate about driving results through PPC, join our team and help us reach new heights with our digital advertising efforts!",
+                "category": "Digital Marketing",
+                "min_price": 600,
+                "max_price": 1100
+            },
+            {
+                "job_id": 7,
+                "employer_email": "employer7@example.com",
+                "job_title": "Social Media Strategist",
+                "deadline": "2023-12-15",
+                "description": "We are looking for a Social Media Strategist to develop and execute social media strategies for our clients. You will be responsible for creating content calendars, managing social media accounts, and analyzing performance metrics. The ideal candidate should have a deep understanding of social media trends and a knack for creative content. If you're ready to shape our clients' digital presence, apply now and be part of our social media success story!",
+                "category": "Digital Marketing",
+                "min_price": 550,
+                "max_price": 950
+            },
+            {
+                "job_id": 8,
+                "employer_email": "employer8@example.com",
+                "job_title": "Email Marketing Specialist",
+                "deadline": "2023-11-30",
+                "description": "We're seeking an Email Marketing Specialist to develop and execute email marketing campaigns for our clients. Your role will involve creating and optimizing email content, managing subscriber lists, and tracking email performance. The ideal candidate should have experience with email marketing platforms and a proven ability to drive engagement and conversions. If you're passionate about the power of email marketing, join our team and help our clients connect with their audience like never before!",
+                "category": "Digital Marketing",
+                "min_price": 400,
+                "max_price": 750
+            }
+        ]
+    },
+    {
+        "category_id": 3,
+        "category_name": "Graphics Design",
+        "jobs": [
+            {
+                "job_id": 9,
+                "employer_email": "employer9@example.com",
+                "job_title": "Illustrator and Digital Artist",
+                "deadline": "2023-11-25",
+                "description": "We're seeking a talented Illustrator and Digital Artist to create stunning visuals for our projects. Your role will involve crafting digital illustrations, concept art, and graphic designs. The ideal candidate should have a strong portfolio of original artwork and a passion for visual storytelling. If you're ready to bring your creativity to life and collaborate on exciting projects, apply now and be a part of our artistic journey!",
+                "category": "Graphics Design",
+                "min_price": 200,
+                "max_price": 450
+            },
+            {
+                "job_id": 10,
+                "employer_email": "employer10@example.com",
+                "job_title": "UI/UX Designer",
+                "deadline": "2023-12-05",
+                "description": "We are looking for a UI/UX Designer to create intuitive and user-friendly interfaces. Your role will involve wireframing, prototyping, and user testing to ensure a seamless user experience. The ideal candidate should have a strong design portfolio and a deep understanding of user-centered design principles. If you're passionate about creating exceptional user interfaces, join our team and help us shape the digital experiences of our clients!",
+                "category": "Graphics Design",
+                "min_price": 250,
+                "max_price": 550
+            },
+            {
+                "job_id": 11,
+                "employer_email": "employer11@example.com",
+                "job_title": "Packaging Designer",
+                "deadline": "2023-12-20",
+                "description": "We are seeking a Packaging Designer to create eye-catching packaging designs for our products. You will be responsible for conceptualizing, designing, and preparing print-ready packaging materials. The ideal candidate should have experience with Adobe Creative Suite and a strong eye for visual aesthetics. If you're ready to make our products stand out on the shelves, apply now and be part of our packaging design success!",
+                "category": "Graphics Design",
+                "min_price": 300,
+                "max_price": 600
+            },
+            {
+                "job_id": 12,
+                "employer_email": "employer12@example.com",
+                "job_title": "Motion Graphics Artist",
+                "deadline": "2023-11-30",
+                "description": "We're seeking a Motion Graphics Artist to create dynamic animations and video content. Your role will involve designing motion graphics, visual effects, and video editing. The ideal candidate should have a strong portfolio of motion graphics work and a passion for creating captivating visual stories. If you're ready to bring life to our video content, join our team and be part of our motion graphics journey!",
+                "category": "Graphics Design",
+                "min_price": 350,
+                "max_price": 700
+            }
+        ]
+    }
+]

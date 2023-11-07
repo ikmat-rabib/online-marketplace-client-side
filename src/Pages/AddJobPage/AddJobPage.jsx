@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 
 const AddJobPage = () => {
+
+    const auth = useContext(AuthContext);
 
     const handleAddJobs = e => {
         e.preventDefault();
@@ -19,8 +23,6 @@ const AddJobPage = () => {
         const newJob = { title, email, category, deadline, minPrice, maxPrice,  description};
 
         console.log(newJob);
-
-       
 
     }
 
@@ -42,7 +44,7 @@ const AddJobPage = () => {
                     <label className="label">
                         <span className="label-text dark:text-white">Email of the employer</span>
                     </label>
-                    <input type="text" name="email" placeholder="Email" className="input input-bordered" required />
+                    <input type="text" name="email" defaultValue={auth.user?.email} readOnly className="input input-bordered" required />
                 </div>
 
                 {/* category */}

@@ -80,28 +80,28 @@ const RegisterPage = () => {
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-white">Name</span>
+                                <span className="label-text text-indigo-800">Name</span>
                             </label>
                             <input type="text" name="name" placeholder="Name" className="input input-bordered text-indigo-800" required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-white label-text ">Photo URL</span>
+                                <span className="text-indigo-800 label-text ">Photo URL</span>
                             </label>
                             <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered text-indigo-800" required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-white label-text">Email</span>
+                                <span className="text-indigo-800 label-text">Email</span>
                             </label>
                             <input type="email" name="email" placeholder="Email" className="input input-bordered text-indigo-800" required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-white label-text">Password</span>
+                                <span className="text-indigo-800 label-text">Password</span>
                             </label>
                             <input type="password" name="password" placeholder="password" className="input input-bordered text-indigo-800" required />
 

@@ -33,7 +33,7 @@ const LoginPage = () => {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
-                    })
+                })
                 navigate(location?.state ? location.state : '/')
             })
             .catch(() => {
@@ -46,67 +46,67 @@ const LoginPage = () => {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
-                    });
+                });
             })
     }
 
     const googleLogin = () => {
         handleGoogleSignIn()
-        .then(() => {
-            toast.success('Login Successful', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
+            .then(() => {
+                toast.success('Login Successful', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
                 })
-            navigate(location?.state ? location?.state : '/')
-        })
-       
+                navigate(location?.state ? location?.state : '/')
+            })
+
     }
 
     return (
-        <div>
-            <div className="py-32">
-                <div className="sm:w-auto md:w-2/4 mx-auto text-center text-indigo-800 rounded-xl py-5 bg-slate-200 drop-shadow-2xl">
-                    <h2 className="text-3xl font-bold">Please Login</h2>
-                    <form onSubmit={HandleLogin} className="card-body md:w-mx-auto">
 
-                        <div className="form-control">
-                            <input type="email" name="email" placeholder="Email" className="input input-bordered text-indigo-800" required />
-                        </div>
+        <div className="py-32">
+            <div className="sm:w-auto md:w-2/4 mx-auto text-center text-indigo-800 rounded-xl py-5 bg-slate-200 drop-shadow-2xl">
+                <h2 className="text-3xl font-bold">Please Login</h2>
+                <form onSubmit={HandleLogin} className="card-body md:w-mx-auto">
 
-                        <div className="form-control">
-                            <input type="password" name="password" placeholder="Password" className="input input-bordered text-indigo-800" required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover text-indigo-800 font-bold">Forgot password?</a>
-                            </label>
-                        </div>
-
-                        <div className="form-control">
-                            <button type="submit" className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0 ">Login</button>
-                        </div>
-                    </form>
-
-                    <div>
-                        <p>or,</p>
-                        <h3 className="text-2xl font-semibold">Sign in with</h3>
-                        <button onClick={googleLogin} className="p-3 my-3 text-3xl border rounded-lg bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800"> <FaGoogle></FaGoogle> </button>
+                    <div className="form-control">
+                        <input type="email" name="email" placeholder="Email" className="input input-bordered text-indigo-800" required />
                     </div>
 
-                    <p className="mb-6">Don't have an account? <Link className=" font-bold" to='/register'>Register Here.</Link></p>
+                    <div className="form-control">
+                        <input type="password" name="password" placeholder="Password" className="input input-bordered text-indigo-800" required />
+                        <label className="label">
+                            <a href="#" className="label-text-alt link link-hover text-indigo-800 font-bold">Forgot password?</a>
+                        </label>
+                    </div>
+
+                    <div className="form-control">
+                        <button type="submit" className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0 ">Login</button>
+                    </div>
+                </form>
+
+                <div>
+                    <p>or,</p>
+                    <h3 className="text-2xl font-semibold">Sign in with</h3>
+                    <button onClick={googleLogin} className="p-3 my-3 text-3xl border rounded-lg bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800"> <FaGoogle></FaGoogle> </button>
                 </div>
+
+                <p className="mb-6">Don't have an account? <Link className=" font-bold" to='/register'>Register Here.</Link></p>
             </div>
         </div>
+
     );
 };
 
 
 
 
- 
+
 
 export default LoginPage;
