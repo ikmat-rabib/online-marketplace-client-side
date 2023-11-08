@@ -20,7 +20,7 @@ const AddJobPage = () => {
         const maxPrice = form.maxPrice.value;
         const description = form.description.value;
 
-        const newJob = { title, email, category, deadline, minPrice, maxPrice,  description};
+        const newJob = { title, email, category, deadline, minPrice, maxPrice, description };
 
         console.log(newJob);
 
@@ -48,12 +48,24 @@ const AddJobPage = () => {
                 </div>
 
                 {/* category */}
-                <div className="form-control">
-                    <label className="label">
+
+                    <div className="form-control ">
+                        <label className="label">
+                            <span className="label-text dark:text-white">Pick a Category</span>
+                        </label>
+                        <select className="select select-bordered" name="category" required>
+                            <option disabled selected>Category</option>
+                            <option>Web Development</option>
+                            <option>Digital Marketing</option>
+                            <option>Graphics Design</option>
+                        </select>
+                    </div>
+
+                    {/* <label className="label">
                         <span className="label-text dark:text-white">Job Category</span>
                     </label>
-                    <input type="text" name="category" placeholder="Category" className="input input-bordered" required />
-                </div>
+                    <input type="text" name="category" placeholder="Category" className="input input-bordered" required /> */}
+
 
                 {/* Deadline */}
                 <div className="form-control">
