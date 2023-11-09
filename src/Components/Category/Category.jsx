@@ -1,30 +1,53 @@
-import { useLoaderData } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
-import JobCards from "../JobCards/JobCards";
 import { useEffect, useState } from "react";
+import { data } from "autoprefixer";
+import JobCard from "../JobCard/JobCard";
 
 
 const Category = () => {
 
-    const loadedJobs = useLoaderData()
-    console.log(loadedJobs);
-
     const [tabIndex, setTabIndex] = useState(0);
+    const [loading, setLoading] = useState(true);
+
 
     const indexMap = {
         "0": "Web Development",
         "1": "Digital Marketing",
         "2": "Graphics Design",
-      };
-    
+    };
+
+    const [categoryData, setCategoryData] = useState({
+        "Web Development": [],
+        "Digital Marketing": [],
+        "Graphics Design": [],
+    });
+
     useEffect(() => {
-        fetch(`/category/${indexMap[tabIndex+'']}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-    }, [tabIndex])
+        const fetchData = async () => {
+            try {
+                for (const category in indexMap) {
+                    const res = await fetch(`http://localhost:5000/jobs/${encodeURIComponent(indexMap[category])}`);
+                    if (!res.ok) {
+                        throw new Error(`Failed to fetch data for ${indexMap[category]}`);
+                    }
+                    const data = await res.json();
+                    setCategoryData((prevData) => ({
+                        ...prevData,
+                        [indexMap[category]]: data,
+                    }));
+                }
+                console.log(data);
+                setLoading(false);
+            } catch (error) {
+                console.error(error);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
 
 
     return (
@@ -41,17 +64,35 @@ const Category = () => {
                         <Tab>Graphics Design</Tab>
                     </TabList>
 
-                    <TabPanel>
-                        <JobCards></JobCards>
-                        <h2>Any content 1</h2>
+                    <TabPanel >
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
+
+                            afghjf
+                            {categoryData["Web Development"].map((job, index) => (
+                                <JobCard key={index} job={job} />
+                            ))}
+
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <JobCards></JobCards>
-                        <h2>Any content 2</h2>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
+
+                            bfghjfg
+                            {categoryData["Digital Marketing"].map((job, index) => (
+                                <JobCard key={index} job={job} />
+                            ))}
+
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <JobCards></JobCards>
-                        <h2>Any content 3</h2>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
+
+                            cgfjhfgj
+                            {categoryData["Graphics Design"].map((job) => (
+                                <JobCard key={job._id} job={job} />
+                            ))}
+
+                        </div>
                     </TabPanel>
                 </Tabs>
             </div>

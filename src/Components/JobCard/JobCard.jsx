@@ -1,23 +1,19 @@
-import { useLoaderData } from "react-router-dom";
 
 
-const JobCard = () => {
 
-    const loadedJobs = useLoaderData()
-    // console.log(loadedJobs);
+const JobCard = ({ job }) => {
 
-    const {job_title, deadline} = loadedJobs
-
+    const { job_title, deadline, min_price, max_price } = job;
 
 
 
     return (
         <div>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+            <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">{job_title}</h2>
                     <p>{deadline}</p>
+                    <p>Range: {min_price}~{max_price}</p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary">Buy Now</button>
                     </div>
