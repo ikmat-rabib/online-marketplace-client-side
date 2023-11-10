@@ -68,6 +68,7 @@ const Category = () => {
                         <Tab>Digital Marketing</Tab>
                         <Tab>Graphics Design</Tab>
                     </TabList>
+                    
 
                     {
                         loading ? <div className="flex justify-center ">
