@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 
@@ -15,7 +16,7 @@ const JobCard = ({ job }) => {
                     <p>{deadline}</p>
                     <p>Range: {min_price}~{max_price}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <Link  className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800">Bid Now</Link >
                     </div>
                 </div>
             </div>

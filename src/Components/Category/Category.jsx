@@ -3,6 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 import { useEffect, useState } from "react";
 import { data } from "autoprefixer";
 import JobCard from "../JobCard/JobCard";
+import { MagnifyingGlass } from 'react-loader-spinner'
 
 
 const Category = () => {
@@ -26,19 +27,23 @@ const Category = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                for (const category in indexMap) {
-                    const res = await fetch(`http://localhost:5000/jobs?category=${indexMap[category]}`);
-                    if (!res.ok) {
-                        throw new Error(`Failed to fetch data for ${indexMap[category]}`);
+                setLoading(true);
+
+                setTimeout(async () => {
+                    for (const category in indexMap) {
+                        const res = await fetch(`http://localhost:5000/jobs?category=${indexMap[category]}`);
+                        if (!res.ok) {
+                            throw new Error(`Failed to fetch data for ${indexMap[category]}`);
+                        }
+                        const data = await res.json();
+                        setCategoryData((prevData) => ({
+                            ...prevData,
+                            [indexMap[category]]: data,
+                        }));
                     }
-                    const data = await res.json();
-                    setCategoryData((prevData) => ({
-                        ...prevData,
-                        [indexMap[category]]: data,
-                    }));
-                }
-                console.log(data);
-                setLoading(false);
+                    console.log(data);
+                    setLoading(false);
+                }, 2000);
             } catch (error) {
                 console.error(error);
                 setLoading(false);
@@ -64,38 +69,56 @@ const Category = () => {
                         <Tab>Graphics Design</Tab>
                     </TabList>
 
-                    <TabPanel >
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
+                    {
+                        loading ? <div className="flex justify-center ">
+                            <MagnifyingGlass
+                                visible={true}
+                                height="80"
+                                width="80"
+                                ariaLabel="MagnifyingGlass-loading"
+                                wrapperStyle={{}}
+                                wrapperClass="MagnifyingGlass-wrapper"
+                                glassColor='#c0efff'
+                                color='#e15b64'
+                            />
+                        </div> :
+                            <div>
+                                <TabPanel >
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
 
-                           
-                            {categoryData["Web Development"].map((job, index) => (
-                                <JobCard key={index} job={job} />
-                            ))}
 
-                        </div>
-                    </TabPanel>
+                                        {categoryData["Web Development"].map((job, index) => (
+                                            <JobCard key={index} job={job} />
+                                        ))}
 
-                    <TabPanel>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
+                                    </div>
+                                </TabPanel>
 
-                          
-                            {categoryData["Digital Marketing"].map((job, index) => (
-                                <JobCard key={index} job={job} />
-                            ))}
+                                <TabPanel>
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
 
-                        </div>
-                    </TabPanel>
 
-                    <TabPanel>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
+                                        {categoryData["Digital Marketing"].map((job, index) => (
+                                            <JobCard key={index} job={job} />
+                                        ))}
 
-                            
-                            {categoryData["Graphics Design"].map((job) => (
-                                <JobCard key={job._id} job={job} />
-                            ))}
+                                    </div>
+                                </TabPanel>
 
-                        </div>
-                    </TabPanel>
+                                <TabPanel>
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
+
+
+                                        {categoryData["Graphics Design"].map((job) => (
+                                            <JobCard key={job._id} job={job} />
+                                        ))}
+
+                                    </div>
+                                </TabPanel>
+
+                            </div>
+                    }
+
 
                 </Tabs>
             </div>
