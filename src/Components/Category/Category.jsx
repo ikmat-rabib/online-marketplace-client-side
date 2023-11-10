@@ -27,7 +27,7 @@ const Category = () => {
         const fetchData = async () => {
             try {
                 for (const category in indexMap) {
-                    const res = await fetch(`http://localhost:5000/jobs/${encodeURIComponent(indexMap[category])}`);
+                    const res = await fetch(`http://localhost:5000/jobs?category=${indexMap[category]}`);
                     if (!res.ok) {
                         throw new Error(`Failed to fetch data for ${indexMap[category]}`);
                     }
@@ -67,33 +67,36 @@ const Category = () => {
                     <TabPanel >
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
 
-                            afghjf
+                           
                             {categoryData["Web Development"].map((job, index) => (
                                 <JobCard key={index} job={job} />
                             ))}
 
                         </div>
                     </TabPanel>
+
                     <TabPanel>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
 
-                            bfghjfg
+                          
                             {categoryData["Digital Marketing"].map((job, index) => (
                                 <JobCard key={index} job={job} />
                             ))}
 
                         </div>
                     </TabPanel>
+
                     <TabPanel>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
 
-                            cgfjhfgj
+                            
                             {categoryData["Graphics Design"].map((job) => (
                                 <JobCard key={job._id} job={job} />
                             ))}
 
                         </div>
                     </TabPanel>
+
                 </Tabs>
             </div>
         </div>
