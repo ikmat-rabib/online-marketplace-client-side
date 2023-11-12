@@ -65,7 +65,7 @@ const AddJobPage = () => {
                     <label className="label">
                         <span className="label-text dark:text-white">Email of the employer</span>
                     </label>
-                    <input type="text" name="email" defaultValue={auth.user?.email} readOnly className="input input-bordered" required />
+                    <input type="email" name="email" defaultValue={auth.user?.email} readOnly className="input input-bordered" required />
                 </div>
 
                 {/* category */}
@@ -81,12 +81,6 @@ const AddJobPage = () => {
                             <option>Graphics Design</option>
                         </select>
                     </div>
-
-                    {/* <label className="label">
-                        <span className="label-text dark:text-white">Job Category</span>
-                    </label>
-                    <input type="text" name="category" placeholder="Category" className="input input-bordered" required /> */}
-
 
                 {/* Deadline */}
                 <div className="form-control">

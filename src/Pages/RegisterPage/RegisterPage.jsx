@@ -55,7 +55,7 @@ const RegisterPage = () => {
 
                 toast.success('Registration Successful', {
                     position: "top-center",
-                    autoClose: 5000,
+                    autoClose: 4000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -72,8 +72,7 @@ const RegisterPage = () => {
     }
 
     return (
-        <div>
-            <div className="py-32  ">
+            <div className="py-32 ">
                 <div className="sm:w-auto md:w-2/4 mx-auto text-center text-indigo-800 bg-slate-200 drop-shadow-2xl rounded-2xl py-6 my-10">
                     <h2 className="text-3xl mt-6 font-bold">Please Register</h2>
                     <form onSubmit={handleRegister} className="card-body md:w-mx-auto">
@@ -126,7 +125,6 @@ const RegisterPage = () => {
                 </div>
                 
             </div>
-        </div>
     );
 };
 

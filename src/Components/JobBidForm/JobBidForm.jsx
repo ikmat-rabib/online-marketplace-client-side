@@ -1,12 +1,15 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 const JobBidForm = ({ loadedJob }) => {
 
     const auth = useContext(AuthContext);
     const { employer_email } = loadedJob;
+
+    const navigate = useNavigate()
 
     const handleBidJobs = e => {
         e.preventDefault();
@@ -20,7 +23,7 @@ const JobBidForm = ({ loadedJob }) => {
 
         const newBid = { email, buyerEmail, deadline, bidPrice, };
 
-        console.log(newBid);
+        // console.log(newBid);
 
         fetch('http://localhost:5000/bid-job', {
             method: 'POST',
@@ -33,12 +36,17 @@ const JobBidForm = ({ loadedJob }) => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Successfully Added',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
+                    toast.success('Bid Successful', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
                     })
+                    navigate( '/bids')
                 }
             })
 
@@ -87,8 +95,8 @@ const JobBidForm = ({ loadedJob }) => {
                             <input className="btn btn-disabled bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0" type="submit" value="You Can't Bid This Job" />
                         </div>
                         :
-                        <div className="form-control mt-6">
-                            <input className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0" type="submit" value="Add Job" />
+                        <div to='/bids' className="form-control mt-6">
+                            <input className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0" type="submit" value="Bid This Job" />
                         </div>
                     }
 
