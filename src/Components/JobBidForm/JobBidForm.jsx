@@ -70,7 +70,7 @@ const JobBidForm = ({ loadedJob }) => {
                     <label className="label">
                         <span className="label-text text-indigo-800 dark:text-white">Your Email</span>
                     </label>
-                    <input type="text" name="email" defaultValue={auth.user?.email} readOnly className="input input-bordered" required />
+                    <input type="email" name="email" defaultValue={auth.user?.email} readOnly className="input input-bordered" required />
                 </div>
 
                 {/* buyer email */}
@@ -78,7 +78,7 @@ const JobBidForm = ({ loadedJob }) => {
                     <label className="label">
                         <span className="label-text text-indigo-800 dark:text-white">Buyer Email</span>
                     </label>
-                    <input type="text" name="buyerEmail" defaultValue={employer_email} readOnly className="input input-bordered" required />
+                    <input type="email" name="buyerEmail" defaultValue={employer_email} readOnly className="input input-bordered" required />
                 </div>
 
                 {/* Deadline */}
