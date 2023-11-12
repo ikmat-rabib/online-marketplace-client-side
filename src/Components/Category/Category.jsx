@@ -3,14 +3,13 @@ import 'react-tabs/style/react-tabs.css';
 import { useEffect, useState } from "react";
 import { data } from "autoprefixer";
 import JobCard from "../JobCard/JobCard";
-import { MagnifyingGlass } from 'react-loader-spinner'
+import { ThreeDots } from 'react-loader-spinner'
 
 
 const Category = () => {
 
     const [tabIndex, setTabIndex] = useState(0);
     const [loading, setLoading] = useState(true);
-
 
     const indexMap = {
         "0": "Web Development",
@@ -58,7 +57,7 @@ const Category = () => {
     return (
         <div className="max-w-7xl mx-auto">
             <div className="text-center my-10 space-y-3">
-                <h3 className=" text-3xl font-bold">Browse Services By Category</h3>
+                <h3 className=" text-3xl font-bold">Browse Jobs By Category</h3>
                 <p className="text-sm font-">Find the perfect freelancer or project in your niche.</p>
             </div>
             <div className="text-center">
@@ -68,46 +67,46 @@ const Category = () => {
                         <Tab>Digital Marketing</Tab>
                         <Tab>Graphics Design</Tab>
                     </TabList>
-                    
+
 
                     {
                         loading ? <div className="flex justify-center ">
-                            <MagnifyingGlass
-                                visible={true}
+                            <ThreeDots
                                 height="80"
                                 width="80"
-                                ariaLabel="MagnifyingGlass-loading"
+                                radius="9"
+                                color="#4fa94d"
+                                ariaLabel="three-dots-loading"
                                 wrapperStyle={{}}
-                                wrapperClass="MagnifyingGlass-wrapper"
-                                glassColor='#c0efff'
-                                color='#e15b64'
+                                wrapperClassName=""
+                                visible={true}
                             />
                         </div> :
                             <div>
                                 <TabPanel >
-                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 max-w-6xl mx-auto ">
 
 
-                                        {categoryData["Web Development"].map((job, index) => (
-                                            <JobCard key={index} job={job} />
+                                        {categoryData["Web Development"].map((job) => (
+                                            <JobCard key={job._id} job={job} />
                                         ))}
 
                                     </div>
                                 </TabPanel>
 
                                 <TabPanel>
-                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 max-w-6xl mx-auto ">
 
 
-                                        {categoryData["Digital Marketing"].map((job, index) => (
-                                            <JobCard key={index} job={job} />
+                                        {categoryData["Digital Marketing"].map((job) => (
+                                            <JobCard key={job._id} job={job} />
                                         ))}
 
                                     </div>
                                 </TabPanel>
 
                                 <TabPanel>
-                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 max-w-6xl mx-auto gap-10">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 max-w-6xl mx-auto ">
 
 
                                         {categoryData["Graphics Design"].map((job) => (
@@ -119,8 +118,6 @@ const Category = () => {
 
                             </div>
                     }
-
-
                 </Tabs>
             </div>
         </div>

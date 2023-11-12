@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 
@@ -12,7 +13,7 @@ const AddJobPage = () => {
 
         const form = e.target;
 
-        const title = form.title.value;
+        const job_title = form.job_title.value;
         const email = form.email.value;
         const category = form.category.value;
         const deadline = form.deadline.value;
@@ -20,9 +21,29 @@ const AddJobPage = () => {
         const maxPrice = form.maxPrice.value;
         const description = form.description.value;
 
-        const newJob = { title, email, category, deadline, minPrice, maxPrice, description };
+        const newJob = { job_title, email, category, deadline, minPrice, maxPrice, description };
 
         console.log(newJob);
+
+        fetch('http://localhost:5000/add-job', {
+            method:'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newJob)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.insertedId) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Successfully Added',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
 
     }
 
@@ -36,7 +57,7 @@ const AddJobPage = () => {
                     <label className="label">
                         <span className="label-text dark:text-white">Job Title</span>
                     </label>
-                    <input type="text" name="title" placeholder="Title" className="input input-bordered" required />
+                    <input type="text" name="job_title" placeholder="Title" className="input input-bordered" required />
                 </div>
 
                 {/* email */}
