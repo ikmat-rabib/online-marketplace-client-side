@@ -81,7 +81,8 @@ const Category = () => {
                                 wrapperClassName=""
                                 visible={true}
                             />
-                        </div> :
+                        </div>
+                            :
                             <div>
                                 <TabPanel >
                                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 max-w-6xl mx-auto ">

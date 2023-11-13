@@ -1,12 +1,15 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import {  useNavigate } from "react-router-dom";
 
 
 
 const AddJobPage = () => {
 
     const auth = useContext(AuthContext);
+    // const location = useLocation();
+    const navigate = useNavigate()
 
     const handleAddJobs = e => {
         e.preventDefault();
@@ -42,6 +45,7 @@ const AddJobPage = () => {
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })
+                  navigate('/posted-job')
             }
         })
 
@@ -75,7 +79,7 @@ const AddJobPage = () => {
                             <span className="label-text dark:text-white">Pick a Category</span>
                         </label>
                         <select className="select select-bordered" name="category" required>
-                            <option disabled selected>Category</option>
+                            <option disabled selected>Select a category</option>
                             <option>Web Development</option>
                             <option>Digital Marketing</option>
                             <option>Graphics Design</option>
