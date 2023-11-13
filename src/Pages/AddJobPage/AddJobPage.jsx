@@ -1,14 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-import {  useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 
 const AddJobPage = () => {
 
     const auth = useContext(AuthContext);
-    // const location = useLocation();
     const navigate = useNavigate()
 
     const handleAddJobs = e => {
@@ -20,34 +18,34 @@ const AddJobPage = () => {
         const email = form.email.value;
         const category = form.category.value;
         const deadline = form.deadline.value;
-        const minPrice = form.minPrice.value;
-        const maxPrice = form.maxPrice.value;
+        const min_price = form.min_price.value;
+        const max_price = form.max_price.value;
         const description = form.description.value;
 
-        const newJob = { job_title, email, category, deadline, minPrice, maxPrice, description };
+        const newJob = { job_title, email, category, deadline, min_price, max_price, description };
 
         console.log(newJob);
 
         fetch('http://localhost:5000/add-job', {
-            method:'POST',
+            method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(newJob)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.insertedId) {
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Successfully Added',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                  })
-                  navigate('/posted-job')
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Successfully Added',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                    navigate('/posted-job')
+                }
+            })
 
     }
 
@@ -72,9 +70,10 @@ const AddJobPage = () => {
                     <input type="email" name="email" defaultValue={auth.user?.email} readOnly className="input input-bordered" required />
                 </div>
 
-                {/* category */}
+                <div className="flex gap-3">
 
-                    <div className="form-control ">
+                    {/* category */}
+                    <div className="form-control w-1/2">
                         <label className="label">
                             <span className="label-text dark:text-white">Pick a Category</span>
                         </label>
@@ -86,28 +85,32 @@ const AddJobPage = () => {
                         </select>
                     </div>
 
-                {/* Deadline */}
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text dark:text-white">Job Deadline</span>
-                    </label>
-                    <input type="text" name="deadline" placeholder="Deadline" className="input input-bordered" required />
+                    {/* Deadline */}
+                    <div className="form-control w-1/2">
+                        <label className="label">
+                            <span className="label-text dark:text-white">Job Deadline</span>
+                        </label>
+                        <input type="date" className="input input-bordered" name="deadline" id="" />
+                    </div>
                 </div>
 
-                {/* Minimum price */}
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text dark:text-white">Minimum price</span>
-                    </label>
-                    <input type="text" name="minPrice" placeholder="Min Price" className="input input-bordered" required />
-                </div>
 
-                {/* Maximum price */}
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text dark:text-white">Maximum Price</span>
-                    </label>
-                    <input type="text" name="maxPrice" placeholder="Max Price" className="input input-bordered" required />
+                <div className="flex gap-3">
+                    {/* Minimum price */}
+                    <div className="form-control w-1/2">
+                        <label className="label">
+                            <span className="label-text dark:text-white">Minimum price</span>
+                        </label>
+                        <input type="text" name="min_price" placeholder="Min Price" className="input input-bordered" required />
+                    </div>
+
+                    {/* Maximum price */}
+                    <div className="form-control w-1/2">
+                        <label className="label">
+                            <span className="label-text dark:text-white">Maximum Price</span>
+                        </label>
+                        <input type="text" name="max_price" placeholder="Max Price" className="input input-bordered" required />
+                    </div>
                 </div>
 
                 {/* description */}
@@ -119,7 +122,7 @@ const AddJobPage = () => {
                 </div>
 
                 <div className="form-control mt-6">
-                    <input className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0" type="submit" value="Add Job" />
+                    <input className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-black border-0" type="submit" value="Add Job" />
                 </div>
             </form>
         </div>
