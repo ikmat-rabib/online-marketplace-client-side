@@ -10,7 +10,7 @@ const Main = () => {
     
 
     return (
-        <div className="dark:bg-slate-800 dark:text-slate-200">
+        <div >
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

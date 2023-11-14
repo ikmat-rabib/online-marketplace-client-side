@@ -3,9 +3,9 @@
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-base-200 text-base-content">
+            <footer className="footer p-10 bg-slate-200 text-base-content">
                 <aside>
-                    <img className="dark:invert" src="https://i.ibb.co/dBTZtH2/W-logo.png" alt="" />
+                    <img className="drop-shadow-md" src="https://i.ibb.co/dBTZtH2/W-logo.png" alt="" />
                     <p>Waark Corporation Ltd.<br />Providing reliable Services since 1992</p>
                 </aside>
                 <nav>
@@ -31,7 +31,7 @@ const Footer = () => {
                     </nav>
                 </nav>
             </footer>
-            <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+            <footer className="footer footer-center p-4 bg-slate-300 text-base-content">
                 <aside>
                     <p>Copyright © 2023 - All right reserved by Waark Corporation Ltd.</p>
                 </aside>

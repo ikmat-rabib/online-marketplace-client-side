@@ -55,8 +55,8 @@ const Category = () => {
 
 
     return (
-        <div className="max-w-7xl mx-auto">
-            <div className="text-center my-10 space-y-3">
+        <div className="max-w-7xl mx-auto ">
+            <div className="text-center mt-20 mb-8 space-y-3">
                 <h3 className=" text-3xl font-bold">Browse Jobs By Category</h3>
                 <p className="text-sm font-">Find the perfect freelancer or project in your niche.</p>
             </div>
@@ -85,7 +85,7 @@ const Category = () => {
                             :
                             <div>
                                 <TabPanel >
-                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 max-w-6xl mx-auto ">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 my-10 mx-4 lg:mx-0">
 
 
                                         {categoryData["Web Development"].map((job) => (
@@ -96,7 +96,7 @@ const Category = () => {
                                 </TabPanel>
 
                                 <TabPanel>
-                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 max-w-6xl mx-auto ">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 mx-4 lg:mx-0">
 
 
                                         {categoryData["Digital Marketing"].map((job) => (
@@ -107,7 +107,7 @@ const Category = () => {
                                 </TabPanel>
 
                                 <TabPanel>
-                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 max-w-6xl mx-auto ">
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 mx-4 lg:mx-0">
 
 
                                         {categoryData["Graphics Design"].map((job) => (

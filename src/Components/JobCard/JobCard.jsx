@@ -6,10 +6,9 @@ const JobCard = ({ job }) => {
 
     const { job_title, deadline, min_price, max_price, description, _id } = job;
 
-    const shortDescription = description.length > 150 ? `${description.slice(0, 145)}...` : description;
+    const shortDescription = description.length > 150 ? `${description.slice(0, 160)}...` : description;
 
     return (
-        <div>
             <div className="card bg-base-100 shadow-xl hover:shadow-[#5bbb7b]">
                 <div className="card-body flex h-auto p-4">
                     <h2 className="text-xl font-bold m-3 text-center">{job_title}</h2>
@@ -17,11 +16,10 @@ const JobCard = ({ job }) => {
                     <p><span className="font-medium">Price Range:</span> ${min_price}~${max_price}</p>
                     <p className="font-medium my-4 flex-grow text-justify">{shortDescription}</p>
                     <div className="card-actions justify-end">
-                        <Link to={`/job/${_id}`} className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-black ">Bid Now</Link >
+                        <Link to={`/job/${_id}`} className="btn bg-[#5bbb7b] hover:bg-[#43a062] hover:scale-105 text-black">Bid Now</Link >
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 

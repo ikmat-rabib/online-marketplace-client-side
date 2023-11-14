@@ -7,7 +7,7 @@ const PostedJobCard = ({ job, handleDeleteJob }) => {
 
     // console.log(job);
 
-    const shortDescription = description.length > 150 ? `${description.slice(0, 145)}...` : description;
+    const shortDescription = description.length > 150 ? `${description.slice(0, 160)}...` : description;
 
 
 
@@ -20,7 +20,7 @@ const PostedJobCard = ({ job, handleDeleteJob }) => {
                     <p><span className="font-medium">Price Range:</span> ${min_price}~${max_price}</p>
                     <p className="font-medium my-4 flex-grow text-justify">{shortDescription}</p>
                     <div className="card-actions justify-between">
-                        <button onClick={() => handleDeleteJob(_id)} className="btn bg-red-600 hover:bg-red-800 hover:scale-95 text-white ">delete</button><Link to={`/update-job/${_id}`} className="btn bg-[#5bbb7b] hover:bg-[#43a062] hover:scale-105 text-black">update</Link>
+                        <button onClick={() => handleDeleteJob(_id)} className="btn bg-red-500 hover:bg-red-700 hover:scale-95 text-white ">delete</button><Link to={`/update-job/${_id}`} className="btn bg-[#5bbb7b] hover:bg-[#43a062] hover:scale-105 text-black">update</Link>
                         
                     </div>
                 </div>

@@ -14,7 +14,7 @@ const Navbar = () => {
     }
 
     const navLinks = <>
-        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink  to='/'>Home</NavLink></li>
         <li><NavLink to='/add-job'>Add Job</NavLink></li>
         <li><NavLink to='/posted-job'>My Posted Job</NavLink></li>
         <li><NavLink to='/bids'>My Bids</NavLink></li>
@@ -23,9 +23,9 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="mx-8">
+        <div className="sticky z-10 bg-white px-8 top-0 left-0 right-0">
 
-            <div className="navbar ">
+            <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn border-0 lg:hidden">
@@ -35,12 +35,12 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <Link to="/"><img className="dark:invert" src="https://i.ibb.co/dBTZtH2/W-logo.png" alt="" /></Link>
-                    <Link to='/'><div className="text-black dark:text-white font-extrabold normal-case md:text-4xl ">Waark</div></Link>
+                    {/* <Link to="/"><img className="hidden md:block hover:shadow" src="https://i.ibb.co/dBTZtH2/W-logo.png" alt="" /></Link> */}
+                    <Link to='/'><div className="hidden md:block font-extrabold normal-case md:text-4xl ">Waark</div></Link>
                 </div>
 
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal dark:text-white  px-1 text-black">
+                    <ul className="menu menu-horizontal px-1 ">
                         {navLinks}
                     </ul>
                 </div>
@@ -56,7 +56,8 @@ const Navbar = () => {
                                     
                                 </label>
                                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><span><small className="text-black dark:text-white ">{user.displayName}</small></span></li>
+                                    <li><span><small className="text-black ">User: {user.displayName}</small></span></li>
+                                    <li><span><small className="text-black ">Email: {user.email}</small></span></li>
                                     <li><button onClick={handleSignOut} className="btn btn-sm bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0 rounded-lg">Sign Out</button></li>
                                 </ul>
                             </div>
