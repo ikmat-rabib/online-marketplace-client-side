@@ -71,18 +71,18 @@ const LoginPage = () => {
     return (
 
         <div className="py-32">
-            <div className="sm:w-auto md:w-2/4 mx-auto text-center text-indigo-800 rounded-xl py-5 bg-slate-200 drop-shadow-2xl">
+            <div className="sm:w-auto md:w-2/4 mx-auto text-center  rounded-xl py-5 bg-slate-200 drop-shadow-2xl">
                 <h2 className="text-3xl font-bold">Please Login</h2>
                 <form onSubmit={HandleLogin} className="card-body md:w-mx-auto">
 
                     <div className="form-control">
-                        <input type="email" name="email" placeholder="Email" className="input input-bordered text-indigo-800" required />
+                        <input type="email" name="email" placeholder="Email" className="input input-bordered " required />
                     </div>
 
                     <div className="form-control">
-                        <input type="password" name="password" placeholder="Password" className="input input-bordered text-indigo-800" required />
+                        <input type="password" name="password" placeholder="Password" className="input input-bordered " required />
                         <label className="label">
-                            <a href="#" className="label-text-alt link link-hover text-indigo-800 font-bold">Forgot password?</a>
+                            <a href="#" className="label-text-alt link link-hover  font-bold">Forgot password?</a>
                         </label>
                     </div>
 
@@ -97,7 +97,7 @@ const LoginPage = () => {
                     <button onClick={googleLogin} className="p-3 my-3 text-3xl border rounded-lg bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800"> <FaGoogle></FaGoogle> </button>
                 </div>
 
-                <p className="mb-6">Don't have an account? <Link className=" font-bold" to='/register'>Register Here.</Link></p>
+                <p className="mb-6">Don't have an account? <Link className=" font-bold text-indigo-800" to='/register'>Register Here.</Link></p>
             </div>
         </div>
 

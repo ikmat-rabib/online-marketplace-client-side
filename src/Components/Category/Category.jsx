@@ -88,7 +88,7 @@ const Category = () => {
                                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 my-10 mx-4 lg:mx-0">
 
 
-                                        {categoryData["Web Development"].map((job) => (
+                                        {categoryData["Web Development"].slice(-4).map((job) => (
                                             <JobCard key={job._id} job={job} />
                                         ))}
 
@@ -99,7 +99,7 @@ const Category = () => {
                                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 mx-4 lg:mx-0">
 
 
-                                        {categoryData["Digital Marketing"].map((job) => (
+                                        {categoryData["Digital Marketing"].slice(-4).map((job) => (
                                             <JobCard key={job._id} job={job} />
                                         ))}
 
@@ -110,7 +110,7 @@ const Category = () => {
                                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 mx-4 lg:mx-0">
 
 
-                                        {categoryData["Graphics Design"].map((job) => (
+                                        {categoryData["Graphics Design"].slice(-4).map((job) => (
                                             <JobCard key={job._id} job={job} />
                                         ))}
 

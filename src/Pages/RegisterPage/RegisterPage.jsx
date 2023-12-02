@@ -73,36 +73,36 @@ const RegisterPage = () => {
 
     return (
             <div className="py-32 ">
-                <div className="sm:w-auto md:w-2/4 mx-auto text-center text-indigo-800 bg-slate-200 drop-shadow-2xl rounded-2xl py-6 my-10">
+                <div className="sm:w-auto md:w-2/4 mx-auto text-center  bg-slate-200 drop-shadow-2xl rounded-2xl py-6 my-10">
                     <h2 className="text-3xl mt-6 font-bold">Please Register</h2>
                     <form onSubmit={handleRegister} className="card-body md:w-mx-auto">
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-indigo-800">Name</span>
+                                <span className="label-text ">Name</span>
                             </label>
-                            <input type="text" name="name" placeholder="Name" className="input input-bordered text-indigo-800" required />
+                            <input type="text" name="name" placeholder="Name" className="input input-bordered " required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-indigo-800 label-text ">Photo URL</span>
+                                <span className=" label-text ">Photo URL</span>
                             </label>
-                            <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered text-indigo-800" required />
+                            <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered " required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-indigo-800 label-text">Email</span>
+                                <span className=" label-text">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="Email" className="input input-bordered text-indigo-800" required />
+                            <input type="email" name="email" placeholder="Email" className="input input-bordered " required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-indigo-800 label-text">Password</span>
+                                <span className=" label-text">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered text-indigo-800" required />
+                            <input type="password" name="password" placeholder="password" className="input input-bordered " required />
 
                         </div>
 
@@ -115,7 +115,7 @@ const RegisterPage = () => {
                             <button type="submit" className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0 ">Register</button>
                         </div>
                     </form>
-                    <p className="mb-">Already have an account? <Link className=" font-bold" to='/login'>Login Here.</Link></p>
+                    <p className="mb-">Already have an account? <Link className="text-indigo-800 font-bold" to='/login'>Login Here.</Link></p>
 
                     <div>
                         <p>or,</p>

@@ -53,14 +53,14 @@ const JobBidForm = ({ loadedJob }) => {
     }
 
     return (
-        <div className="max-w-screen-lg mx-auto my-10 p-6 glass rounded-xl text-black dark:text-white drop-shadow-2xl">
-            <h2 className="text-3xl font-bold text-center ">Place Your Bid For This Job</h2>
+        <div className="max-w-screen-lg mx-auto my-10 p-6 glass rounded-xl bg-slate-200 drop-shadow-2xl">
+            <h2 className="text-3xl font-bold text-center ">Place Your Bid</h2>
             <form onSubmit={handleBidJobs} className="card-body">
 
                 {/* price */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-indigo-800 dark:text-white">Price</span>
+                        <span className="label-text ">Price</span>
                     </label>
                     <input type="text" name="bidPrice" placeholder="Price" className="input input-bordered" required />
                 </div>
@@ -68,7 +68,7 @@ const JobBidForm = ({ loadedJob }) => {
                 {/* email */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-indigo-800 dark:text-white">Your Email</span>
+                        <span className="label-text ">Your Email</span>
                     </label>
                     <input type="email" name="email" defaultValue={auth.user?.email} readOnly className="input input-bordered" required />
                 </div>
@@ -76,7 +76,7 @@ const JobBidForm = ({ loadedJob }) => {
                 {/* buyer email */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-indigo-800 dark:text-white">Buyer Email</span>
+                        <span className="label-text ">Buyer Email</span>
                     </label>
                     <input type="email" name="buyerEmail" defaultValue={employer_email} readOnly className="input input-bordered" required />
                 </div>
@@ -84,7 +84,7 @@ const JobBidForm = ({ loadedJob }) => {
                 {/* Deadline */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-indigo-800 dark:text-white">Job Deadline</span>
+                        <span className="label-text ">Job Deadline</span>
                     </label>
                     <input type="text" name="deadline" placeholder="Deadline" className="input input-bordered" required />
                 </div>
