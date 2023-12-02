@@ -16,12 +16,12 @@ const JobBidForm = ({ loadedJob }) => {
 
         const form = e.target;
 
-        const email = form.email.value;
-        const buyerEmail = form.buyerEmail.value;
+        const bidderEmail = form.bidderEmail.value;
+        const employerEmail = form.employerEmail.value;
         const deadline = form.deadline.value;
         const bidPrice = form.bidPrice.value;
 
-        const newBid = { email, buyerEmail, deadline, bidPrice, };
+        const newBid = { bidderEmail, employerEmail, deadline, bidPrice, };
 
         // console.log(newBid);
 
@@ -46,7 +46,7 @@ const JobBidForm = ({ loadedJob }) => {
                         progress: undefined,
                         theme: "colored",
                     })
-                    navigate( '/bids')
+                    navigate('/bids')
                 }
             })
 
@@ -70,7 +70,7 @@ const JobBidForm = ({ loadedJob }) => {
                     <label className="label">
                         <span className="label-text ">Your Email</span>
                     </label>
-                    <input type="email" name="email" defaultValue={auth.user?.email} readOnly className="input input-bordered" required />
+                    <input type="email" name="bidderEmail" defaultValue={auth.user?.email} readOnly className="input input-bordered" required />
                 </div>
 
                 {/* buyer email */}
@@ -78,7 +78,7 @@ const JobBidForm = ({ loadedJob }) => {
                     <label className="label">
                         <span className="label-text ">Buyer Email</span>
                     </label>
-                    <input type="email" name="buyerEmail" defaultValue={employer_email} readOnly className="input input-bordered" required />
+                    <input type="email" name="employerEmail" defaultValue={employer_email} readOnly className="input input-bordered" required />
                 </div>
 
                 {/* Deadline */}
@@ -86,7 +86,7 @@ const JobBidForm = ({ loadedJob }) => {
                     <label className="label">
                         <span className="label-text ">Job Deadline</span>
                     </label>
-                    <input type="text" name="deadline" placeholder="Deadline" className="input input-bordered" required />
+                    <input type="date" name="deadline" placeholder="Deadline" className="input input-bordered" required />
                 </div>
 
                 {
@@ -98,7 +98,7 @@ const JobBidForm = ({ loadedJob }) => {
                         <div to='/bids' className="form-control mt-6">
                             <input className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0" type="submit" value="Bid This Job" />
                         </div>
-                    }
+                }
 
             </form>
         </div>

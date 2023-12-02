@@ -79,7 +79,7 @@ const UpdatedJob = () => {
                             <span className="label-text font-semibold">Pick a Category</span>
                         </label>
                         <select className="select select-bordered"  name="category" required>
-                            {/* <option disabled  selected>Category</option> */}
+                            <option disabled  selected>Category</option>
                             <option>Web Development</option>
                             <option>Digital Marketing</option>
                             <option>Graphics Design</option>
