@@ -1,8 +1,12 @@
-# React + Vite
+# Waark is a marketplace website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+*****Website Link: *****
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+***about this project***
+------------------------
+**axios and custom hooks are used in this project**
+**after bidding a job, the status will show pending until the job is accepted/rejected by the employee**
+**postedjobs, Bids and Bids request are shown in tabular form**
+**the website has some private routes**
+**the website homepage is responsive**

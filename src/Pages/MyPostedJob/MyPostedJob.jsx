@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
 import PostedJobCard from "../../Components/PostedJobCard/PostedJobCard";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const MyPostedJob = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext  )
 
     const [addedJobs, setAddedJobs] = useState([])
 

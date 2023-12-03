@@ -2,6 +2,10 @@
 
 const BidsTable = ({ myBids }) => {
 
+    const handleCompleteBid = () => {
+
+    }
+
 
     return (
         <>
@@ -23,11 +27,22 @@ const BidsTable = ({ myBids }) => {
                         {
                             myBids.map(bid => <tr key={bid._id}>
                                 <th>1</th>
-                                <td>Cy Ganderton</td>
+                                <td>{bid.job_title}</td>
                                 <td>{bid.employerEmail
                                 }</td>
-                                <td>{bid.employerEmail
+                                <td>{bid.deadline
                                 }</td>
+                                <td >{bid.status}</td>
+                                <td >
+                                    {bid.status === 'Pending' && (
+                                        <button
+                                            onClick={() => handleCompleteBid(bid._id)}
+                                            className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0"
+                                        >
+                                            Complete
+                                        </button>
+                                    )}
+                                </td>
                             </tr>)
                         }
 

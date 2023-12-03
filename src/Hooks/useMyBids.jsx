@@ -1,21 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./useAxiosSecure";
-import { useContext } from "react";
-import { AuthContext } from "../Providers/AuthProvider";
+import useAuth from "./useAuth";
 
 const useMyBids = () => {
+    
     const axiosSecure = useAxiosSecure()
-    const auth = useContext(AuthContext);
+    const {user} = useAuth()
+
     const { refetch, data: bidJobs = [] } = useQuery({
-        queryKey: ['bidJobs', auth.user?.email],
+        queryKey: ['bidJobs', user?.email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/bidJobs?
-            bidderEmail=${auth.user?.email}`)
+            bidderEmail=${user?.email}`)
             return res.data
         }
     })
     
-    console.log(auth.user?.email)
+    console.log(user?.email)
     return [bidJobs,refetch]
 };
 

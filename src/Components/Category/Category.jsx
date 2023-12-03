@@ -57,7 +57,7 @@ const Category = () => {
     return (
         <div className="max-w-7xl mx-auto ">
             <div className="text-center mt-20 mb-8 space-y-3">
-                <h3 className=" text-3xl font-bold">Browse Jobs By Category</h3>
+                <h3 className=" text-3xl font-bold">Browse Jobs By <span className="text-[#5bbb7b] ">Category</span></h3>
                 <p className="text-sm font-">Find the perfect freelancer or project in your niche.</p>
             </div>
             <div className="text-center">
