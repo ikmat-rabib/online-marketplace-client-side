@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import PostedJobCard from "../../Components/PostedJobCard/PostedJobCard";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
+import axios from "axios";
 
 
 const MyPostedJob = () => {
@@ -10,12 +11,17 @@ const MyPostedJob = () => {
 
     const [addedJobs, setAddedJobs] = useState([])
 
-    const url = `http://localhost:5000/jobs?employer_email=${user?.email}`;
+    const url = `https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jobs?employer_email=${user?.email}`;
 
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setAddedJobs(data))
+        axios.get(url, {withCredentials: true})
+        .then(res => {
+            setAddedJobs(res.data)
+        })
+
+        // fetch(url, )
+        //     .then(res => res.json())
+        //     .then(data => setAddedJobs(data))
     }, [])
 
     const userPostedJobs = addedJobs.filter(userPostedJob => userPostedJob.
@@ -32,7 +38,7 @@ const MyPostedJob = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/jobs/${id}`, {
+                fetch(`https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jobs/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

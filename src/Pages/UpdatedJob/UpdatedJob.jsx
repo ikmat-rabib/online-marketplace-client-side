@@ -28,7 +28,7 @@ const UpdatedJob = () => {
 
         console.log(updatedJob);
 
-        fetch(`http://localhost:5000/jobs/${_id}`, {
+        fetch(`https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jobs/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

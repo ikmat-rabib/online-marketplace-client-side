@@ -26,7 +26,7 @@ const AddJobPage = () => {
 
         console.log(newJob);
 
-        fetch('http://localhost:5000/add-job', {
+        fetch('https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/add-job', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

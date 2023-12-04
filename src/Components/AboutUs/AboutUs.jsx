@@ -19,7 +19,7 @@ const AboutUs = () => {
 
                 <div className="md:w-1/2 flex justify-center mt-5 md:mt-0 md:justify-end">
                     <div className="w-80 h-60 border-4 border-[#5bbb7b]   rounded-lg relative">
-                        <img className="w-80 rounded-lg shadow-2xl  absolute bottom-5 right-[20px]" src="https://i.ibb.co/xhvZSHk/trainers.jpg" alt="" />
+                        <img className="w-80 rounded-lg shadow-2xl shadow-slate-500 absolute bottom-5 right-[20px]" src="https://i.ibb.co/xhvZSHk/trainers.jpg" alt="" />
                     </div>
                 </div>
             </div>

@@ -1,9 +1,10 @@
 
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Providers/AuthProvider";
 import { FaGoogle } from 'react-icons/fa';
 import { toast } from "react-toastify";
+import axios from "axios";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const LoginPage = () => {
@@ -23,7 +24,11 @@ const LoginPage = () => {
 
         signIn(email, password)
             .then(result => {
-                console.log(result.user)
+                const loggedInUser = result.user
+                console.log(loggedInUser)
+                const user = {email}
+                
+
                 toast.success('Login Successful', {
                     position: "top-center",
                     autoClose: 5000,
@@ -34,7 +39,16 @@ const LoginPage = () => {
                     progress: undefined,
                     theme: "colored",
                 })
-                navigate(location?.state ? location.state : '/')
+                
+
+                // get access token
+                axios.post('https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jwt', user, {withCredentials: true})
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.success) {
+                        navigate(location?.state ? location?.state : '/')
+                    }
+                })
             })
             .catch(() => {
                 toast.error("User Email/Password doesn't match", {

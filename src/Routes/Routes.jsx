@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         {
           path: "/",
           element: <Homepage></Homepage>,
-          // loader: () => fetch('http://localhost:5000/jobs')
+          // loader: () => fetch('https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jobs')
         },
         {
           path: "/login",
@@ -38,12 +38,12 @@ const router = createBrowserRouter([
         {
           path: "/update-job/:id",
           element: <PrivateRoute><UpdatedJob></UpdatedJob></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/job/${params.id}`)
+          loader: ({params}) => fetch(`https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/job/${params.id}`)
         },
         {
           path: "/job/:id",
           element: <PrivateRoute><JobDetailPage></JobDetailPage></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/job/${params.id}`)
+          loader: ({params}) => fetch(`https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/job/${params.id}`)
         },
         {
           path: "/posted-job",

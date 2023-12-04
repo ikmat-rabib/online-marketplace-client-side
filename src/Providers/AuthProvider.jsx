@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from "../Firebase/firebase.config";
+import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 export const AuthContext = createContext(null);
 
@@ -17,13 +19,23 @@ const AuthProvider = ({ children }) => {
 
     const handleGoogleSignIn = () => {
         signInWithPopup(auth, googleProvider)
-        .then( result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-        })
-        .catch( error => {
-            console.log(error);
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+
+                // get access token
+                axios.post('https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.success) {
+                            Navigate(location?.state ? location?.state : '/')
+                        }
+                    })
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     const createUser = (email, password) => {
@@ -45,8 +57,25 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('user on auth changed', currentUser);
+            const userEmail = currentUser?.email || user?.email
+            const loggedUser = { email: userEmail }
+
             setUser(currentUser)
             setLoading(false)
+
+            if (currentUser) {
+
+                axios.post('https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jwt', loggedUser, { withCredentials: true })
+                    .then(res => {
+                        console.log('tkn res', res.data);
+                    })
+            }
+            else {
+                axios.post('https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/logout', loggedUser, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                    })
+            }
         })
         return () => {
             unSubscribe();

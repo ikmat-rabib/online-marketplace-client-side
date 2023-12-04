@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import JobBidForm from "../../Components/JobBidForm/JobBidForm";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const JobDetailPage = () => {
 
