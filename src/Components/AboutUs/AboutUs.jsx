@@ -10,11 +10,11 @@ const AboutUs = () => {
 
                 <div className="md:w-1/2 p-3 md:p-0 space-y-3">
                     <h3 className="text-4xl font-bold text-">About <span className="text-">Us</span></h3>
-                    <p className="font-medium text-">Dedicated to excellence, our passionate team of fitness experts is committed to guiding and inspiring you on your wellness journey. Together, let's achieve your health and fitness goals.</p>
-                    <p className="flex items-center gap-2 font-medium text-"><FaCheck className="text-"></FaCheck>Expert Trainers</p>
-                    <p className="flex items-center gap-2 font-medium text-"><FaCheck className="text-"></FaCheck>Personalized Fitness Plans</p>
-                    <p className="flex items-center gap-2 font-medium text-"><FaCheck className="text-"></FaCheck>Wellness Assessments</p>
-                    <p className="flex items-center gap-2 font-medium text-"><FaCheck className="text-"></FaCheck>Community Events</p>
+                    <p className="font-medium text-">We're the bridge connecting skilled professionals to a myriad of exciting projects, fostering a thriving community of collaboration. Join us and unlock your full potential for success.</p>
+                    <p className="flex items-center gap-2 font-medium text-"><FaCheck className="text-green-600"></FaCheck>Expert Services</p>
+                    <p className="flex items-center gap-2 font-medium text-"><FaCheck className="text-green-600"></FaCheck>Endless Opportunities</p>
+                    <p className="flex items-center gap-2 font-medium text-"><FaCheck className="text-green-600"></FaCheck>Community Spirit</p>
+                    <p className="flex items-center gap-2 font-medium text-"><FaCheck className="text-green-600"></FaCheck>Success Stories:</p>
                 </div>
 
                 <div className="md:w-1/2 flex justify-center mt-5 md:mt-0 md:justify-end">
