@@ -117,7 +117,7 @@ const BidRequestTable = ({ bidRequests }) => {
             <td>{bidPrice}</td>
             <td>
                 {
-                    (status === 'Pending' || status === 'In progress' || status === 'Rejected') ? status : undefined
+                    (status === 'Pending' || status === 'In progress' || status === 'Rejected' || status === 'Complete') ? status : undefined
                 }
 
             </td>
@@ -145,7 +145,7 @@ const BidRequestTable = ({ bidRequests }) => {
                         </div>
                     </>
                 ) : (
-                    status === "In progress" ? (
+                    (status === "In progress") ? (
                         <>
                             <div className="flex gap-2">
                                 <progress
