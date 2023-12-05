@@ -8,6 +8,9 @@ const BidRequestTable = ({ bidRequests }) => {
     const { job_title, bidderEmail, bidderDeadline, bidPrice, status, _id } = bidRequests
 
     const [progressBarVisible, setProgressBarVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    console.log(loading);
 
     const handleReject = (_id) => {
 
@@ -50,6 +53,7 @@ const BidRequestTable = ({ bidRequests }) => {
                                 icon: "success",
                                 confirmButtonText: "OK",
                             });
+                            setLoading(true);
                         }
                     });
             }
@@ -58,7 +62,6 @@ const BidRequestTable = ({ bidRequests }) => {
 
     const handleAccept = (_id) => {
 
-        
 
         const newStatus = status === "Pending" ? "In progress" : "Rejected";
         const updatedStatus = {
@@ -97,6 +100,7 @@ const BidRequestTable = ({ bidRequests }) => {
                                 confirmButtonText: "OK",
                             });
                             setProgressBarVisible(true);
+                            setLoading(true);
                         }
                     });
             }
@@ -117,27 +121,44 @@ const BidRequestTable = ({ bidRequests }) => {
                 }
 
             </td>
-            <td >
-                {
-                    (status === 'Pending') && (
-                        <div className=" flex gap-2">
-                            {(!progressBarVisible) ? (
+            <td>
+                {status === "Pending" ? (
+                    <>
+                        <div className="flex gap-2">
+                            {!progressBarVisible ? (
                                 <>
                                     <button
-                                        onClick={() => handleAccept(_id,)}
-                                        className="btn btn-sm bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0">Accept</button>
+                                        onClick={() => handleAccept(_id)}
+                                        className="btn btn-sm bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0"
+                                    >
+                                        Accept
+                                    </button>
 
                                     <button
-                                        onClick={() => handleReject(_id,)}
-                                        className="btn btn-sm bg-red-600 hover:bg-red-800 text-white border-0">Reject</button>
+                                        onClick={() => handleReject(_id)}
+                                        className="btn btn-sm bg-red-600 hover:bg-red-800 text-white border-0"
+                                    >
+                                        Reject
+                                    </button>
                                 </>
-                                ) :
-                                <progress className="progress progress-success w-56" value="40" max="100"></progress>
-                            }
+                            ) : null}
                         </div>
-                    )
-                }
+                    </>
+                ) : (
+                    status === "In progress" ? (
+                        <>
+                            <div className="flex gap-2">
+                                <progress
+                                    className="progress progress-success w-56"
+                                    value="40"
+                                    max="100"
+                                ></progress>
+                            </div>
+                        </>
+                    ) : null
+                )}
             </td>
+
         </tr>
         </>
     );

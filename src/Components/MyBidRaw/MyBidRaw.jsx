@@ -18,14 +18,21 @@ const MyBidRaw = ({ bid }) => {
             }</td>
             <td >{status}</td>
             <td >
-                {status === 'Pending' && (
+                { (status === 'In progress') ? 
                     <button
                         onClick={() => handleCompleteBid(_id)}
-                        className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0"
+                        className="btn btn-sm bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0"
                     >
                         Complete
-                    </button>
-                )}
+                    </button> 
+                    :
+                    <button
+                        onClick={() => handleCompleteBid(_id)}
+                        className="btn btn-sm btn-disabled bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0"
+                    >
+                        Complete
+                    </button> 
+                }
             </td>
         </tr>
     );
