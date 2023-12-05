@@ -9,7 +9,7 @@ const MyBidsJob = () => {
     const { user } = useAuth()
     const [bidJobs, setBidJobs] = useState([])
 
-    const url = `https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/bidJobs?bidderEmail=${user?.email}`;
+    const url = `https://assignment-11-server-puce-iota.vercel.app/bidJobs?bidderEmail=${user?.email}`;
 
     useEffect(() => {
         axios.get(url, {withCredentials: true})

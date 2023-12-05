@@ -19,7 +19,7 @@ const Newsletter = () => {
 
         console.log(newNewsletter);
 
-        const res = await axiosSecure.post('https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/newsletter', newNewsletter);
+        const res = await axiosSecure.post('https://assignment-11-server-puce-iota.vercel.app/newsletter', newNewsletter);
 
         const data = res.data;
         console.log(data);

@@ -32,7 +32,7 @@ const JobBidForm = ({ loadedJob }) => {
 
         // console.log(newBid);
 
-        fetch('https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/bid-job', {
+        fetch('https://assignment-11-server-puce-iota.vercel.app/bid-job', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

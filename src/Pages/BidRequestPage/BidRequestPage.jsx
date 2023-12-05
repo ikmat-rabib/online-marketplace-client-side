@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import useMyBids from "../../Hooks/useMyBids";
 import BidRequestTable from "../../Components/BidRequestTable/BidRequestTable";
-import axios from "axios";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 
@@ -14,7 +13,7 @@ const BidRequestPage = () => {
 
     const [bidRequests, setBidRequest] = useState([])
 
-    const url = `https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/bidJobs?employerEmail=${user?.email}`;
+    const url = `https://assignment-11-server-puce-iota.vercel.app/bidJobs?employerEmail=${user?.email}`;
 
     useEffect(() => {
         axiosSecure.get(url)

@@ -30,7 +30,7 @@ const Category = () => {
 
                 setTimeout(async () => {
                     for (const category in indexMap) {
-                        const res = await fetch(`https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jobs?category=${indexMap[category]}`);
+                        const res = await fetch(`https://assignment-11-server-puce-iota.vercel.app/jobs?category=${indexMap[category]}`);
                         if (!res.ok) {
                             throw new Error(`Failed to fetch data for ${indexMap[category]}`);
                         }

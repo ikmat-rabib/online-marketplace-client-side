@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
                 console.log(loggedUser);
 
                 // get access token
-                axios.post('https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jwt', user, { withCredentials: true })
+                axios.post('https://assignment-11-server-puce-iota.vercel.app/jwt', user, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                         if (res.data.success) {
@@ -65,13 +65,13 @@ const AuthProvider = ({ children }) => {
 
             if (currentUser) {
 
-                axios.post('https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jwt', loggedUser, { withCredentials: true })
+                axios.post('https://assignment-11-server-puce-iota.vercel.app/jwt', loggedUser, { withCredentials: true })
                     .then(res => {
                         console.log('tkn res', res.data);
                     })
             }
             else {
-                axios.post('https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/logout', loggedUser, { withCredentials: true })
+                axios.post('https://assignment-11-server-puce-iota.vercel.app/logout', loggedUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                     })

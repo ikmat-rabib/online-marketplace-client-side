@@ -11,7 +11,7 @@ const MyPostedJob = () => {
 
     const [addedJobs, setAddedJobs] = useState([])
 
-    const url = `https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jobs?employer_email=${user?.email}`;
+    const url = `https://assignment-11-server-puce-iota.vercel.app/jobs?employer_email=${user?.email}`;
 
     useEffect(() => {
         axios.get(url, {withCredentials: true})
@@ -38,7 +38,7 @@ const MyPostedJob = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://assignment-11-server-7dsms1ns9-ikmat-rabib.vercel.app/jobs/${id}`, {
+                fetch(`https://assignment-11-server-puce-iota.vercel.app/jobs/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
