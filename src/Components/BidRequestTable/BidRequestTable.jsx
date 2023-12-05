@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Swal from "sweetalert2";
 
@@ -6,15 +7,18 @@ const BidRequestTable = ({ bidRequests }) => {
 
     const { job_title, bidderEmail, bidderDeadline, bidPrice, status, _id } = bidRequests
 
-
+    const [progressBarVisible, setProgressBarVisible] = useState(false);
 
     const handleReject = (_id) => {
 
         console.log(_id);
 
+
+        const newStatus = (status === "Pending") ? "Rejected" : status;
         const updatedStatus = {
-            status,
+            status: newStatus,
         };
+
         console.log(updatedStatus);
 
         Swal.fire({
@@ -54,10 +58,11 @@ const BidRequestTable = ({ bidRequests }) => {
 
     const handleAccept = (_id) => {
 
-        console.log(_id);
+        
 
+        const newStatus = status === "Pending" ? "In progress" : "Rejected";
         const updatedStatus = {
-            status,
+            status: newStatus,
         };
 
         console.log(updatedStatus);
@@ -76,7 +81,7 @@ const BidRequestTable = ({ bidRequests }) => {
                     method: "PUT",
                     headers: {
                         'Content-Type': 'application/json',
-                      },
+                    },
                     body: JSON.stringify(updatedStatus),
                 })
                     .then((res) => res.json())
@@ -91,6 +96,7 @@ const BidRequestTable = ({ bidRequests }) => {
                                 icon: "success",
                                 confirmButtonText: "OK",
                             });
+                            setProgressBarVisible(true);
                         }
                     });
             }
@@ -107,22 +113,27 @@ const BidRequestTable = ({ bidRequests }) => {
             <td>{bidPrice}</td>
             <td>
                 {
-                    (status === 'Pending') ?
-                    status : <progress className="progress progress-success w-56" value="40" max="100"></progress>
+                    (status === 'Pending' || status === 'In progress' || status === 'Rejected') ? status : undefined
                 }
+
             </td>
             <td >
                 {
                     (status === 'Pending') && (
                         <div className=" flex gap-2">
+                            {(!progressBarVisible) ? (
+                                <>
+                                    <button
+                                        onClick={() => handleAccept(_id,)}
+                                        className="btn btn-sm bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0">Accept</button>
 
-                            <button
-                                onClick={() => handleAccept(_id,)}
-                                className="btn btn-sm bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0">Accept</button>
-
-                            <button
-                                onClick={() => handleReject(_id,)}
-                                className="btn btn-sm bg-red-600 hover:bg-red-800 text-white border-0">Reject</button>
+                                    <button
+                                        onClick={() => handleReject(_id,)}
+                                        className="btn btn-sm bg-red-600 hover:bg-red-800 text-white border-0">Reject</button>
+                                </>
+                                ) :
+                                <progress className="progress progress-success w-56" value="40" max="100"></progress>
+                            }
                         </div>
                     )
                 }
