@@ -23,7 +23,6 @@ const MyBidsJob = () => {
 
     console.log(userBidJobs);
 
-    // userBidJobs.map(bid =>  )
 
     return (
 
