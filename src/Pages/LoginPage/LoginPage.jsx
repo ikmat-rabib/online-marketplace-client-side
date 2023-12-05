@@ -5,6 +5,7 @@ import { FaGoogle } from 'react-icons/fa';
 import { toast } from "react-toastify";
 import axios from "axios";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const LoginPage = () => {
@@ -26,8 +27,8 @@ const LoginPage = () => {
             .then(result => {
                 const loggedInUser = result.user
                 console.log(loggedInUser)
-                const user = {email}
-                
+                const user = { email }
+
 
                 toast.success('Login Successful', {
                     position: "top-center",
@@ -39,16 +40,16 @@ const LoginPage = () => {
                     progress: undefined,
                     theme: "colored",
                 })
-                
+
 
                 // get access token
-                axios.post('https://assignment-11-server-puce-iota.vercel.app/jwt', user, {withCredentials: true})
-                .then(res => {
-                    console.log(res.data);
-                    if (res.data.success) {
-                        navigate(location?.state ? location?.state : '/')
-                    }
-                })
+                axios.post('https://assignment-11-server-puce-iota.vercel.app/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.success) {
+                            navigate(location?.state ? location?.state : '/')
+                        }
+                    })
             })
             .catch(() => {
                 toast.error("User Email/Password doesn't match", {
@@ -83,37 +84,41 @@ const LoginPage = () => {
     }
 
     return (
+        <>
+            <Helmet>
+                <title>Waark | Login</title>
+            </Helmet>
+            <div className="py-32">
+                <div className="sm:w-auto md:w-2/4 mx-auto text-center  rounded-xl py-5 bg-slate-200 drop-shadow-2xl">
+                    <h2 className="text-3xl font-bold">Please Login</h2>
+                    <form onSubmit={HandleLogin} className="card-body md:w-mx-auto">
 
-        <div className="py-32">
-            <div className="sm:w-auto md:w-2/4 mx-auto text-center  rounded-xl py-5 bg-slate-200 drop-shadow-2xl">
-                <h2 className="text-3xl font-bold">Please Login</h2>
-                <form onSubmit={HandleLogin} className="card-body md:w-mx-auto">
+                        <div className="form-control">
+                            <input type="email" name="email" placeholder="Email" className="input input-bordered " required />
+                        </div>
 
-                    <div className="form-control">
-                        <input type="email" name="email" placeholder="Email" className="input input-bordered " required />
+                        <div className="form-control">
+                            <input type="password" name="password" placeholder="Password" className="input input-bordered " required />
+                            <label className="label">
+                                <a href="#" className="label-text-alt link link-hover  font-bold">Forgot password?</a>
+                            </label>
+                        </div>
+
+                        <div className="form-control">
+                            <button type="submit" className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0 ">Login</button>
+                        </div>
+                    </form>
+
+                    <div>
+                        <p>or,</p>
+                        <h3 className="text-2xl font-semibold">Sign in with</h3>
+                        <button onClick={googleLogin} className="p-3 my-3 text-3xl border rounded-lg bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800"> <FaGoogle></FaGoogle> </button>
                     </div>
 
-                    <div className="form-control">
-                        <input type="password" name="password" placeholder="Password" className="input input-bordered " required />
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover  font-bold">Forgot password?</a>
-                        </label>
-                    </div>
-
-                    <div className="form-control">
-                        <button type="submit" className="btn bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800 border-0 ">Login</button>
-                    </div>
-                </form>
-
-                <div>
-                    <p>or,</p>
-                    <h3 className="text-2xl font-semibold">Sign in with</h3>
-                    <button onClick={googleLogin} className="p-3 my-3 text-3xl border rounded-lg bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800"> <FaGoogle></FaGoogle> </button>
+                    <p className="mb-6">Don't have an account? <Link className=" font-bold text-indigo-800" to='/register'>Register Here.</Link></p>
                 </div>
-
-                <p className="mb-6">Don't have an account? <Link className=" font-bold text-indigo-800" to='/register'>Register Here.</Link></p>
             </div>
-        </div>
+        </>
 
     );
 };

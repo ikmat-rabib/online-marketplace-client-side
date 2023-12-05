@@ -3,6 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 import useMyBids from "../../Hooks/useMyBids";
 import BidRequestTable from "../../Components/BidRequestTable/BidRequestTable";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 
 const BidRequestPage = () => {
@@ -17,9 +18,9 @@ const BidRequestPage = () => {
 
     useEffect(() => {
         axiosSecure.get(url)
-        .then(res => {
-            setBidRequest(res.data)
-        })
+            .then(res => {
+                setBidRequest(res.data)
+            })
     }, [url, axiosSecure])
 
     const userBidRequests = bidRequests.filter(userBidRequest => userBidRequest.employerEmail == user?.email)
@@ -27,33 +28,38 @@ const BidRequestPage = () => {
     console.log(userBidRequests);
 
     return (
-        <div className="max-w-7xl mx-auto h-screen">
-        <h3 className="text-center text-3xl font-medium my-10">Total Bids: {userBidRequests.length}</h3>
-        <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Job Title</th>
-                            <th>Bidder Email</th>
-                            <th>Deadline</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                            <th className="">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* row 1 */}
-                        {
-                            userBidRequests.map(bidRequests => <BidRequestTable key={bidRequests._id} bidRequests={bidRequests}></BidRequestTable>)
-                        }
+        <>
+            <Helmet>
+                <title>Waark | Bid Request</title>
+            </Helmet>
+            <div className="max-w-7xl mx-auto h-screen">
+                <h3 className="text-center text-3xl font-medium my-10">Total Bids: {userBidRequests.length}</h3>
+                <div className="overflow-x-auto">
+                    <table className="table">
+                        {/* head */}
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Job Title</th>
+                                <th>Bidder Email</th>
+                                <th>Deadline</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th className="">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {/* row 1 */}
+                            {
+                                userBidRequests.map(bidRequests => <BidRequestTable key={bidRequests._id} bidRequests={bidRequests}></BidRequestTable>)
+                            }
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-    </div>
+        </>
     );
 };
 

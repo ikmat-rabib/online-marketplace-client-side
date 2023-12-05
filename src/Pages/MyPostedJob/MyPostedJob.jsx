@@ -3,21 +3,22 @@ import PostedJobCard from "../../Components/PostedJobCard/PostedJobCard";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 
 const MyPostedJob = () => {
 
-    const { user } = useContext(AuthContext  )
+    const { user } = useContext(AuthContext)
 
     const [addedJobs, setAddedJobs] = useState([])
 
     const url = `https://assignment-11-server-puce-iota.vercel.app/jobs?employer_email=${user?.email}`;
 
     useEffect(() => {
-        axios.get(url, {withCredentials: true})
-        .then(res => {
-            setAddedJobs(res.data)
-        })
+        axios.get(url, { withCredentials: true })
+            .then(res => {
+                setAddedJobs(res.data)
+            })
 
         // fetch(url, )
         //     .then(res => res.json())
@@ -60,18 +61,23 @@ const MyPostedJob = () => {
         })
     }
 
-   
+
 
     return (
-        <div className="max-w-7xl mx-auto ">
-            <h3 className=" text-3xl font-bold text-center my-10">Total Jobs Posted: {userPostedJobs.length}</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 mx-4 lg:mx-0">
-                {
-                    userPostedJobs.map(job => <PostedJobCard key={job._id} job={job} handleDeleteJob={handleDeleteJob}></PostedJobCard>)
-                }
-            </div>
+        <>
+            <Helmet>
+                <title>Waark | Posted Job</title>
+            </Helmet>
+            <div className="max-w-7xl mx-auto ">
+                <h3 className=" text-3xl font-bold text-center my-10">Total Jobs Posted: {userPostedJobs.length}</h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-10 mx-4 lg:mx-0">
+                    {
+                        userPostedJobs.map(job => <PostedJobCard key={job._id} job={job} handleDeleteJob={handleDeleteJob}></PostedJobCard>)
+                    }
+                </div>
 
-        </div>
+            </div>
+        </>
     );
 };
 

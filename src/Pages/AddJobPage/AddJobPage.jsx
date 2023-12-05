@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const AddJobPage = () => {
@@ -50,82 +51,87 @@ const AddJobPage = () => {
     }
 
     return (
-        <div className="max-w-screen-lg mx-auto my-10  bg-slate-200 rounded-xl drop-shadow-2xl">
-            <form onSubmit={handleAddJobs} className="card-body">
-            <h2 className="text-3xl font-bold text-center ">Add Job Here</h2>
+        <>
+            <Helmet>
+                <title>Waark | Add Job</title>
+            </Helmet>
+            <div className="max-w-screen-lg mx-auto my-10  bg-slate-200 rounded-xl drop-shadow-2xl">
+                <form onSubmit={handleAddJobs} className="card-body">
+                    <h2 className="text-3xl font-bold text-center ">Add Job Here</h2>
 
-                {/* title */}
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text font-semibold">Job Title</span>
-                    </label>
-                    <input type="text" name="job_title" placeholder="Title" className="input input-bordered" required />
-                </div>
-
-                {/* employer_email */}
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text font-semibold">Email of the employer</span>
-                    </label>
-                    <input type="email" name="employer_email" defaultValue={auth.user?.email} readOnly className="input input-bordered" required />
-                </div>
-
-                <div className="flex md:gap-3">
-
-                    {/* category */}
-                    <div className="form-control w-1/2">
+                    {/* title */}
+                    <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-semibold">Pick a Category</span>
+                            <span className="label-text font-semibold">Job Title</span>
                         </label>
-                        <select className="select select-bordered" name="category" required>
-                            <option disabled selected>Category</option>
-                            <option>Web Development</option>
-                            <option>Digital Marketing</option>
-                            <option>Graphics Design</option>
-                        </select>
+                        <input type="text" name="job_title" placeholder="Title" className="input input-bordered" required />
                     </div>
 
-                    {/* Deadline */}
-                    <div className="form-control w-1/2">
+                    {/* employer_email */}
+                    <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-semibold">Job Deadline</span>
+                            <span className="label-text font-semibold">Email of the employer</span>
                         </label>
-                        <input type="date" className="input input-bordered" name="deadline" placeholder="" id="" required/>
-                    </div>
-                </div>
-
-
-                <div className="flex md:gap-3">
-                    {/* Minimum price */}
-                    <div className="form-control w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold">Minimum price</span>
-                        </label>
-                        <input type="text" name="min_price" placeholder="Min Price" className="input input-bordered" required />
+                        <input type="email" name="employer_email" defaultValue={auth.user?.email} readOnly className="input input-bordered" required />
                     </div>
 
-                    {/* Maximum price */}
-                    <div className="form-control w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold">Maximum Price</span>
-                        </label>
-                        <input type="text" name="max_price" placeholder="Max Price" className="input input-bordered" required />
+                    <div className="flex md:gap-3">
+
+                        {/* category */}
+                        <div className="form-control w-1/2">
+                            <label className="label">
+                                <span className="label-text font-semibold">Pick a Category</span>
+                            </label>
+                            <select className="select select-bordered" name="category" required>
+                                <option disabled selected>Category</option>
+                                <option>Web Development</option>
+                                <option>Digital Marketing</option>
+                                <option>Graphics Design</option>
+                            </select>
+                        </div>
+
+                        {/* Deadline */}
+                        <div className="form-control w-1/2">
+                            <label className="label">
+                                <span className="label-text font-semibold">Job Deadline</span>
+                            </label>
+                            <input type="date" className="input input-bordered" name="deadline" placeholder="" id="" required />
+                        </div>
                     </div>
-                </div>
 
-                {/* description */}
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text font-semibold">Job Description</span>
-                    </label>
-                    <textarea className="textarea textarea-bordered" name="description" id="" cols="30" rows="5" required></textarea>
-                </div>
 
-                <div className="form-control mt-6">
-                    <input className="btn bg-[#5bbb7b] hover:bg-[#43a062] hover:scale-105 text-black" type="submit" value="Add Job" />
-                </div>
-            </form>
-        </div>
+                    <div className="flex md:gap-3">
+                        {/* Minimum price */}
+                        <div className="form-control w-1/2">
+                            <label className="label">
+                                <span className="label-text font-semibold">Minimum price</span>
+                            </label>
+                            <input type="text" name="min_price" placeholder="Min Price" className="input input-bordered" required />
+                        </div>
+
+                        {/* Maximum price */}
+                        <div className="form-control w-1/2">
+                            <label className="label">
+                                <span className="label-text font-semibold">Maximum Price</span>
+                            </label>
+                            <input type="text" name="max_price" placeholder="Max Price" className="input input-bordered" required />
+                        </div>
+                    </div>
+
+                    {/* description */}
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text font-semibold">Job Description</span>
+                        </label>
+                        <textarea className="textarea textarea-bordered" name="description" id="" cols="30" rows="5" required></textarea>
+                    </div>
+
+                    <div className="form-control mt-6">
+                        <input className="btn bg-[#5bbb7b] hover:bg-[#43a062] hover:scale-105 text-black" type="submit" value="Add Job" />
+                    </div>
+                </form>
+            </div>
+        </>
     );
 };
 

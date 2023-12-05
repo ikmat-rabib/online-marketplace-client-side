@@ -4,12 +4,13 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { toast } from "react-toastify";
 import { FaGoogle } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 
 const RegisterPage = () => {
 
     const { createUser, handleGoogleSignIn } = useContext(AuthContext)
-    
+
     const [registerError, setRegisterError] = useState('')
     const [success, setSuccess] = useState('')
 
@@ -50,8 +51,8 @@ const RegisterPage = () => {
                     displayName: name,
                     photoURL: photo
                 })
-                .then()
-                .catch()
+                    .then()
+                    .catch()
 
                 toast.success('Registration Successful', {
                     position: "top-center",
@@ -62,7 +63,7 @@ const RegisterPage = () => {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
-                    });
+                });
                 navigate('/')
             })
             .catch(error => {
@@ -72,6 +73,10 @@ const RegisterPage = () => {
     }
 
     return (
+        <>
+            <Helmet>
+                <title>Waark | Register</title>
+            </Helmet>
             <div className="py-32 ">
                 <div className="sm:w-auto md:w-2/4 mx-auto text-center  bg-slate-200 drop-shadow-2xl rounded-2xl py-6 my-10">
                     <h2 className="text-3xl mt-6 font-bold">Please Register</h2>
@@ -123,8 +128,9 @@ const RegisterPage = () => {
                         <button onClick={handleGoogleSignIn} className="p-3 my-3 text-3xl border rounded-lg bg-[#5bbb7b] hover:bg-[#43a062] text-indigo-800"> <FaGoogle></FaGoogle> </button>
                     </div>
                 </div>
-                
+
             </div>
+        </>
     );
 };
 
